@@ -53,7 +53,7 @@ request), but a 200 (OK) with `verified` false.
 
 As OpenAttestation's library code assumes a slightly different paradigm when
 verifying, functionly it is the same. More detail and a clear mapping of
-responses is given elsewhere.
+responses in a technical note [here](open_attestation_results_mapping.md).
 
 ## Verify options
 
