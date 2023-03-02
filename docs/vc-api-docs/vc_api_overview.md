@@ -51,9 +51,9 @@ it uses- in particular VC issuance and verification.
 
 The endpoints needed for basic VC services in VC-API/traceablity-interop are:
 
-  * /credentials/[issue](Issuance-API_301662300.html) <\- issue a credential
-  * /credentials/[verify](Verify-API_303041038.html) <\- verify a credential
-  * [/credentials/status](Status-API_301662302.html) <\- update the revocation status of a previoulsy issued credential
+  * [/credentials/issue](issue) <\- issue a credential
+  * [/credentials/verify](verify) <\- verify a credential
+  * [/credentials/status](status) <\- update the revocation status of a previoulsy issued credential
 
 Each of these is covered in it's own section. The traceability-intero openapi
 spec is found [here](https://w3c-ccg.github.io/traceability-interop/) and
