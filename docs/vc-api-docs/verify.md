@@ -1,12 +1,7 @@
 # Overview
 
-The DVP uses a verify end point for verification, based on traceability-
-interop (related to VC-API). The goal of tha API is to do what verifying does
-
-## Requirements: TI verify/testing
-
-The requirements here are based mostly on what is tested by the traceability-
-interop test suite and it's openapi spec
+The DVP uses a verify end point for verification, based on [traceability-
+interop](https://github.com/w3c-ccg/traceability-interop).
 
 ## Endpoint(s)
 
