@@ -1,0 +1,54 @@
+{
+  "formatVersion": 1,
+  "passTypeIdentifier": "pass.com.test.vc.dev",
+  "serialNumber": "",
+  "teamIdentifier": "GBLK6R7V7X",
+  "barcode": {
+    "message": "",
+    "format": "PKBarcodeFormatQR",
+    "messageEncoding": "iso-8859-1"
+  },
+  "organizationName": "Department of Home Affairs.",
+  "description": "Department of Home Affairs.",
+  "logoText": "Department of Home Affairs.",
+  "foregroundColor": "rgb(7, 34, 67)",
+  "backgroundColor": "rgb(255, 255, 255)",
+  "generic": {
+    "primaryFields": [
+      {
+        "key": "name",
+        "value": "Jane Smith"
+      }
+    ],
+    "secondaryFields": [
+      {
+        "key": "degreeSchool",
+        "value": "Example University"
+      }
+    ],
+    "auxiliaryFields": [
+      {
+        "key": "degreeName",
+        "value": "Bachelor of Science and Arts"
+      }
+    ],
+    "backFields": [
+      {
+        "key": "issueDate",
+        "label": "Issued",
+        "value": "1980-05-07T10:00-05:00",
+        "dateStyle": "PKDateStyleFull"
+      },
+      {
+        "label": "Issuer DID",
+        "key": "issuerDID",
+        "value": ""
+      },
+      {
+        "label": "Subject DID",
+        "key": "subjectDID",
+        "value": ""
+      }
+    ]
+  }
+}
