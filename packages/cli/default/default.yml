@@ -149,6 +149,13 @@ server:
         $args:
           - keyMapping:
               Ed25519: JsonWebKey2020 # Ed25519VerificationKey2020 | JsonWebKey2020
+    
+    # Wallet API
+    - - /wallet
+      - $require: '@vckit/wallet?t=function#WalletRouter'
+        $args:
+          - encryptedEndpoint: http://localhost:3332/encrypted-storage/encrypted-data
+            qrCodeVerifyEndpoint: http://localhost:3000/credential-verifier
 
     # VC API
     - - $require: '@vckit/vc-api?t=function#VCRouter'
