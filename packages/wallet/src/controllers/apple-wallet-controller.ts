@@ -79,13 +79,19 @@ async function generateApplePass(vc: any, vcQrcodeUrl: string) {
     generic: {
       primaryFields: [
         {
-          key: 'name',
-          value: vc.credentialSubject.name,
+          key: 'title',
+          value: 'Department of Home Affairs',
         },
       ],
       secondaryFields: [
         {
-          key: 'degreeSchool',
+          key: 'name',
+          value: vc.credentialSubject.name,
+        },
+      ],
+      auxiliaryFields: [
+        {
+          key: 'visaType',
           value: 'Visa Grant Letter With Conditions.',
         },
       ],
