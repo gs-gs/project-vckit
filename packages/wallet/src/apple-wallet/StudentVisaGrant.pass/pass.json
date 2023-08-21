@@ -8,16 +8,15 @@
     "format": "PKBarcodeFormatQR",
     "messageEncoding": "iso-8859-1"
   },
-  "organizationName": "Department of Home Affairs.",
-  "description": "Department of Home Affairs.",
-  "logoText": "Department of Home Affairs.",
+  "organizationName": "Department of Home Affairs",
+  "description": "Department of Home Affairs",
   "foregroundColor": "rgb(7, 34, 67)",
   "backgroundColor": "rgb(255, 255, 255)",
   "generic": {
     "primaryFields": [
       {
         "key": "name",
-        "value": "Jane Smith"
+        "value": "Department of Home Affairs."
       }
     ],
     "secondaryFields": [
