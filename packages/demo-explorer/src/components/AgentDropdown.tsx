@@ -8,8 +8,13 @@ import { useQuery } from 'react-query'
 const AgentDropdown: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const { agents, setActiveAgentId, activeAgentId, addAgentConfig } =
-    useVeramo()
+  const {
+    agents,
+    setActiveAgentId,
+    activeAgentId,
+    addAgentConfig,
+    removeAgent,
+  } = useVeramo()
   const navigate = useNavigate()
 
   const schemaUrl = process.env.REACT_APP_SCHEMA_URL
@@ -37,28 +42,23 @@ const AgentDropdown: React.FC<{ children: React.ReactNode }> = ({
   }, [schema])
 
   useEffect(() => {
-    if (agents) {
-      const existingAgent = agents.find(
-        (_agent: any) => _agent.context?.id === defaultAgentId,
-      )
-      if (!existingAgent) {
-        if (schema && agentUrl && schemaUrl) {
-          addAgentConfig({
-            context: { id: defaultAgentId, name: 'Agent', schema: schemaUrl },
-            remoteAgents: [
-              {
-                url: agentUrl,
-                enabledMethods: Object.keys(schema['x-methods']),
-                token: apiKey,
-              },
-            ],
-          })
-          setActiveAgentId(defaultAgentId)
-        }
-      }
+    removeAgent(defaultAgentId)
+
+    if (schema && agentUrl && schemaUrl) {
+      addAgentConfig({
+        context: { id: defaultAgentId, name: 'Agent', schema: schemaUrl },
+        remoteAgents: [
+          {
+            url: agentUrl,
+            enabledMethods: Object.keys(schema['x-methods']),
+            token: apiKey,
+          },
+        ],
+      })
+      setActiveAgentId(defaultAgentId)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [agents, schema, agentUrl, apiKey, schemaUrl])
+  }, [schema, agentUrl, apiKey, schemaUrl])
 
   return (
     <Dropdown
