@@ -64,8 +64,8 @@ async function generateApplePass(vc: any, vcQrcodeUrl: string) {
     './packages/wallet/src/apple-wallet/StudentVisaGrant.pass'
   );
   await template.loadCertificate(
-    './packages/wallet/src/apple-wallet/com.testvc.passbook.pem',
-    '12345678'
+    './packages/wallet/src/apple-wallet/pass.au.com.gosource.vc.dev.pem',
+    'password'
   );
   const pass = template.createPass({
     serialNumber: '12354',
