@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - demo
+      - next
+  pull_request:
+    branches:
+      - demo
+      - next
 
 jobs:
   install_and_build:
@@ -12,13 +17,15 @@ jobs:
     env:
       CI: false
 
+    environment: ${{ (github.ref == 'refs/heads/demo' && 'dev') || (github.ref == 'refs/heads/next' && 'UN') }}
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
       - name: Cache dependencies
         id: cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ~/.pnpm-store
           key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
@@ -47,14 +54,8 @@ jobs:
           echo REACT_APP_DEFAULT_AGENT_ID=${{ vars.REACT_APP_DEFAULT_AGENT_ID }} >> .env
           cat .env
 
-      - name: Build example documents
-        run: cd packages/example-documents && pnpm build
-
-      - name: Build renderer
-        run: cd packages/renderer && pnpm build
-
       - name: Build explorer
-        run: cd packages/demo-explorer && pnpm build
+        run: pnpm build:js
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
@@ -68,6 +69,8 @@ jobs:
 
     permissions:
       id-token: write
+
+    environment: ${{ (github.ref == 'refs/heads/dev' && 'dev') || (github.ref == 'refs/heads/next' && 'UN') }}
 
     steps:
       - name: Checkout repository
@@ -85,7 +88,7 @@ jobs:
           pip3 install awscli --upgrade --user
 
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+        uses: aws-actions/configure-aws-credentials@v3
         with:
           role-to-assume: ${{ secrets.AWS_ROLE_GITHUB_ACTION_ARN }}
           aws-region: ${{ secrets.AWS_REGION }}
