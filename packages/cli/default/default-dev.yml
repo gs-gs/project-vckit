@@ -141,7 +141,7 @@ server:
         $args:
           - agent:
               $ref: /agent
-              
+
     - - $require: '@vckit/utils?t=function#loggerMiddleware'
 
     # DID Documents
