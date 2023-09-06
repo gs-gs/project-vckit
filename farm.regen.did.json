@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:farm.regendigital.io",
+  "verificationMethod": [
+    {
+      "id": "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-0",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:farm.regendigital.io",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "Ed25519",
+        "x": "VCqBri91ONbBDNm6UY8AUKSx_84mKYweEZ4oaUQJ6KQ"
+      }
+    },
+    {
+      "id": "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-1",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:farm.regendigital.io",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "X25519",
+        "x": "COimvgeykCwqYgpEr294z4haDAoxLnMk9h7dwYtiQ3w"
+      }
+    }
+  ],
+  "authentication": [
+    "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-0",
+    "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-1"
+  ],
+  "assertionMethod": [
+    "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-0",
+    "did:web:farm.regendigital.io#542a81ae2f7538d6c10cd9ba518f0050a4b1ffce26298c1e119e28694409e8a4-key-1"
+  ],
+  "keyAgreement": [],
+  "service": []
+}

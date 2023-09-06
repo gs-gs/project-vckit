@@ -1,0 +1,39 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/did/v1",
+    "https://w3id.org/security/suites/jws-2020/v1"
+  ],
+  "id": "did:web:feedlot.regendigital.io",
+  "verificationMethod": [
+    {
+      "id": "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-0",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:feedlot.regendigital.io",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "Ed25519",
+        "x": "2ahrJPbSnYBk4VYUrwOsXGpVxA5rTFW8U95Az4eBJIo"
+      }
+    },
+    {
+      "id": "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-1",
+      "type": "JsonWebKey2020",
+      "controller": "did:web:feedlot.regendigital.io",
+      "publicKeyJwk": {
+        "kty": "OKP",
+        "crv": "X25519",
+        "x": "O6sfUe_SSe0MG-WHrA5Yb7oUtURGYgT3M3MTHEVWHk8"
+      }
+    }
+  ],
+  "authentication": [
+    "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-0",
+    "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-1"
+  ],
+  "assertionMethod": [
+    "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-0",
+    "did:web:feedlot.regendigital.io#d9a86b24f6d29d8064e15614af03ac5c6a55c40e6b4c55bc53de40cf8781248a-key-1"
+  ],
+  "keyAgreement": [],
+  "service": []
+}
