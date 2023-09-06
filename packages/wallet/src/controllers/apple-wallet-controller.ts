@@ -36,7 +36,7 @@ export const getApplePass = async (
     if (!encryptedCredentialData) {
       throw Error('Encrypted data not found');
     }
-    const { encryptedEndpoint, qrCodeVerifyEndpoint } = args;
+    const { encryptedEndpoint, qrCodeVerifyEndpoint, signerPemFile } = args;
 
     const id = encryptedCredentialData.encryptedDataId;
     const uri = `${encryptedEndpoint}/${id}`;
@@ -45,7 +45,11 @@ export const getApplePass = async (
     const encodedUrlPayload = encodeURIComponent(JSON.stringify({ payload }));
     const vcQrcodeUrl = `${qrCodeVerifyEndpoint}?q=${encodedUrlPayload}`;
 
-    const pass = await generateApplePass(credential, vcQrcodeUrl);
+    const pass = await generateApplePass(
+      credential,
+      vcQrcodeUrl,
+      signerPemFile
+    );
     res
       .status(200)
       .setHeader(
@@ -59,14 +63,20 @@ export const getApplePass = async (
   }
 };
 
-async function generateApplePass(vc: any, vcQrcodeUrl: string) {
+async function generateApplePass(
+  vc: any,
+  vcQrcodeUrl: string,
+  signerPemFile: string
+) {
   const template = await Template.load(
     './packages/wallet/src/apple-wallet/StudentVisaGrant.pass'
   );
-  await template.loadCertificate(
-    './packages/wallet/src/apple-wallet/pass.au.com.gosource.vc.dev.pem',
-    'password'
-  );
+
+  if (!signerPemFile) {
+    throw Error('Apple wallet certificate not available');
+  }
+
+  await template.loadCertificate(signerPemFile, 'password');
   const pass = template.createPass({
     serialNumber: '12354',
     barcodes: [

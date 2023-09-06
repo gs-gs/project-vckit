@@ -156,6 +156,7 @@ server:
         $args:
           - encryptedEndpoint: http://localhost:3332/encrypted-storage/encrypted-data
             qrCodeVerifyEndpoint: http://localhost:3000/credential-verifier
+            signerPemFile: ./vc.dev.pem
 
     # VC API
     - - $require: '@vckit/vc-api?t=function#VCRouter'
