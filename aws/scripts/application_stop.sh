@@ -5,6 +5,7 @@ sudo rm -rf /opt/codedeploy-agent/deployment-root/*
 sudo service codedeploy-agent start
 
 # Stop server
+sudo su
 pm2 stop all
 
 # Delete old source
