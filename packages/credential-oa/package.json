@@ -20,7 +20,7 @@
     "@veramo/utils": "5.2.0"
   },
   "devDependencies": {
-    "@types/debug": "4.1.7",
+    "@types/debug": "4.1.12",
     "@types/uuid": "9.0.0",
     "typescript": "4.9.4"
   },
